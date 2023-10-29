@@ -1,4 +1,16 @@
+"""
+nums - source array
+target - value to be searched
+
+Time complexity - O(log[2] N)
+Space complexity - O(1)
+"""
+
+
 def binary_search(nums, target):
+    # Check if the list is null or empty
+    if nums is None or len(nums) == 0:
+        raise Exception("List cannot be null or empty")
     # length of the list
     n = len(nums)
     # Left and right pointers

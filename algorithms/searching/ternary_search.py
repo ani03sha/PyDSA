@@ -8,7 +8,7 @@ Space complexity - O(1)
 
 
 def ternary_search(nums, target):
-    # Check if the list is not null or is empty
+    # Check if the list is null or empty
     if nums is None or len(nums) == 0:
         raise Exception("List cannot be null or empty")
     # Length of the list

@@ -1,41 +1,40 @@
+import unittest
 from algorithms.searching.binary_search import binary_search
 
 
-def test_binary_search_found_at_beginning():
-    assert binary_search([1, 2, 3, 4, 5], 1) == 0
+class TestBinarySearch(unittest.TestCase):
+
+    def test_binary_search(self):
+        nums = [1, 2, 3, 4, 5]
+        self.assertEqual(binary_search(nums, 1), 0)
+
+        nums = [1, 2, 3, 4, 5]
+        self.assertEqual(binary_search(nums, 5), 4)
+
+        nums = [1, 2, 3, 4, 5]
+        self.assertEqual(binary_search(nums, 3), 2)
+
+        nums = [1, 2, 3, 4, 5]
+        self.assertEqual(binary_search(nums, 0), None)
+
+        nums = [1, 2, 3, 4, 5]
+        self.assertEqual(binary_search(nums, 6), None)
+
+        with self.assertRaises(Exception):
+            binary_search([], 42)
+
+        nums = [42]
+        self.assertEqual(binary_search(nums, 42), 0)
+
+        nums = [1, 2, 2, 3, 4, 4, 5]
+        self.assertEqual(binary_search(nums, 2), 1)
+
+        nums = list(range(1, 1001))
+        self.assertEqual(binary_search(nums, 750), 749)
+
+        nums = [1.1, 2.2, 3.3, 4.4, 5.5]
+        self.assertEqual(binary_search(nums, 3.3), 2)
 
 
-def test_binary_search_found_at_end():
-    assert binary_search([1, 2, 3, 4, 5], 5) == 4
-
-
-def test_binary_search_found_in_middle():
-    assert binary_search([1, 2, 3, 4, 5], 3) == 2
-
-
-def test_binary_search_not_found_lower():
-    assert binary_search([1, 2, 3, 4, 5], 0) is None
-
-
-def test_binary_search_not_found_higher():
-    assert binary_search([1, 2, 3, 4, 5], 6) is None
-
-
-def test_binary_search_not_found_in_empty_list():
-    assert binary_search([], 42) is None
-
-
-def test_binary_search_found_in_single_element_list():
-    assert binary_search([42], 42) == 0
-
-
-def test_binary_search_found_in_duplicate_elements():
-    assert binary_search([1, 2, 2, 3, 4, 4, 5], 2) == 1
-
-
-def test_binary_search_found_in_large_sorted_list():
-    assert binary_search(list(range(1, 1001)), 750) == 749
-
-
-def test_binary_search_found_with_float_numbers():
-    assert binary_search([1.1, 2.2, 3.3, 4.4, 5.5], 3.3) == 2
+if __name__ == '__main__':
+    unittest.main()
