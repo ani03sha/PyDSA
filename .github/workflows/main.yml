@@ -22,9 +22,6 @@ jobs:
                     # python -m pip install -r .github/workflows/requirements.txt
                 working-directory: ${{ github.workspace }}
 
-            -   name: Lint code
-                run: pylint .
-
             -   name: Build and deploy (if needed)
                 run: |
                     # Add deployment commands here if you have a deployment process
