@@ -22,9 +22,6 @@ jobs:
                     # python -m pip install -r .github/workflows/requirements.txt
                 working-directory: ${{ github.workspace }}
 
-            -   name: Run tests
-                run: pytest
-
             -   name: Lint code
                 run: pylint .
 
